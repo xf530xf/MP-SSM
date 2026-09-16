@@ -28,18 +28,6 @@ A PyTorch implementation of the main-text method in *Real-Time Detection of Micr
 
 Recommended environment for full training: Linux, Python 3.11, an NVIDIA GPU, and a CUDA-enabled PyTorch build compatible with the installed GPU driver. Use the reference backend on macOS or CPU for small correctness tests.
 
-### Local macOS setup
-
-This workspace already contains a `.venv` environment that uses the locally installed PyTorch and includes the project's additional dependencies:
-
-```bash
-cd /Users/fengxiao/Desktop/SSM
-source .venv/bin/activate
-python -m mp_ssm --help
-python -m pytest -q
-```
-
-The environment depends on the local Python installation. **Create a new virtual environment on the server instead of copying `.venv`.**
 
 ### NVIDIA server setup
 
