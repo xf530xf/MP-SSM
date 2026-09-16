@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: mp-ssm
+Version: 0.1.0
+Summary: Paper-guided selective state-space binary segmentation for microplastics
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: torch>=2.2
+Requires-Dist: numpy>=1.24
+Requires-Dist: Pillow>=10
+Requires-Dist: PyYAML>=6
+Requires-Dist: opencv-python-headless>=4.8
+Provides-Extra: test
+Requires-Dist: pytest>=8; extra == "test"
+Provides-Extra: cuda
+Requires-Dist: mamba-ssm<3,>=2.2; extra == "cuda"
+Requires-Dist: einops>=0.7; extra == "cuda"
+Requires-Dist: ninja; extra == "cuda"
+Requires-Dist: packaging; extra == "cuda"
+Dynamic: license-file

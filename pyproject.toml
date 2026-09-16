@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mp-ssm"
+version = "0.1.0"
+description = "Paper-guided selective state-space binary segmentation for microplastics"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "numpy>=1.24", "Pillow>=10", "PyYAML>=6", "opencv-python-headless>=4.8"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+cuda = ["mamba-ssm>=2.2,<3", "einops>=0.7", "ninja", "packaging"]
+
+[project.scripts]
+mp-ssm = "mp_ssm.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mp_ssm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["cuda: requires NVIDIA CUDA and the selective_scan_cuda extension"]

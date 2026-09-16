@@ -1,0 +1,42 @@
+model:
+  channels: [16, 32, 48, 64]
+  fusion_channels: 32
+  d_state: 16
+  expand: 2
+  scan_backend: cuda
+data:
+  root: data/MP-NTNU
+  image_size: 512
+  clahe: true
+  clahe_clip: 2.0
+  clahe_grid: 8
+  hflip_p: 0.5
+  vflip_p: 0.5
+  rotate_p: 0.5
+  rotate_degrees: 15
+  mosaic_p: 0.5
+  mixup_p: 0.2
+  mixup_alpha: 0.5
+train:
+  device: cuda
+  epochs: 200
+  batch_size: 1
+  workers: 0
+  seed: 42
+  amp: false
+  lr: 0.001
+  betas: [0.9, 0.999]
+  eps: 0.00000001
+  weight_decay: 0.01
+  amsgrad: false
+  t_max: 50
+  eta_min: 0.00001
+  log_interval: 20
+  val_interval: 10
+  save_interval: 100
+  cpu_threads: 4
+eval:
+  threshold: 0.5
+  threshold_start: 0.01
+  threshold_end: 0.99
+  threshold_step: 0.01

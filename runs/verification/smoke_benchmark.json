@@ -1,0 +1,41 @@
+{
+  "parameters": 24507,
+  "trainable_parameters": 24507,
+  "parameter_tensor_bytes": 98028,
+  "buffer_tensor_bytes": 1512,
+  "serialized_state_dict_bytes": 194981,
+  "environment": {
+    "python": "3.14.5",
+    "platform": "macOS-15.3.1-arm64-arm-64bit-Mach-O",
+    "torch": "2.10.0",
+    "numpy": "2.4.1",
+    "opencv": "5.0.0",
+    "cuda_build": null,
+    "cuda_available": false,
+    "gpu": null
+  },
+  "device": "cpu",
+  "scan_backend": "reference",
+  "precision": "fp32",
+  "precision_mode": "autocast; master weights and SSM state parameters remain FP32",
+  "checkpoint": null,
+  "scope": "batch=1, resident tensor -> model logits; excludes file I/O, preprocessing, transfer and postprocessing",
+  "memory_scope": "CUDA allocator current and peak allocated/reserved bytes; CPU/MPS memory not measured",
+  "flops_scope": "partial only: Conv2d and Linear multiply-adds at 2 FLOPs/MAC; excludes selective recurrence, einsum projections, scan indexing, normalization, activations, pooling and interpolation; not total model FLOPs",
+  "measurements": [
+    {
+      "size": [
+        64,
+        64
+      ],
+      "warmup": 2,
+      "iterations": 5,
+      "latency_mean_ms": 16.532933205598965,
+      "latency_median_ms": 16.17050002096221,
+      "latency_p95_ms": 18.657241214532405,
+      "images_per_second": 60.48533478991766,
+      "partial_conv_linear_flops": 1601280,
+      "memory": null
+    }
+  ]
+}

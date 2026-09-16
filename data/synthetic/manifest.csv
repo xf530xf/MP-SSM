@@ -1,0 +1,9 @@
+image,mask,video_id,split
+train/images/synthetic_train_0000.png,train/masks/synthetic_train_0000.png,synthetic_train,train
+train/images/synthetic_train_0001.png,train/masks/synthetic_train_0001.png,synthetic_train,train
+train/images/synthetic_train_0002.png,train/masks/synthetic_train_0002.png,synthetic_train,train
+train/images/synthetic_train_0003.png,train/masks/synthetic_train_0003.png,synthetic_train,train
+val/images/synthetic_val_0000.png,val/masks/synthetic_val_0000.png,synthetic_val,val
+val/images/synthetic_val_0001.png,val/masks/synthetic_val_0001.png,synthetic_val,val
+test/images/synthetic_test_0000.png,test/masks/synthetic_test_0000.png,synthetic_test,test
+test/images/synthetic_test_0001.png,test/masks/synthetic_test_0001.png,synthetic_test,test

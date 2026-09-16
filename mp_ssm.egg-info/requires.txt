@@ -1,0 +1,14 @@
+torch>=2.2
+numpy>=1.24
+Pillow>=10
+PyYAML>=6
+opencv-python-headless>=4.8
+
+[cuda]
+mamba-ssm<3,>=2.2
+einops>=0.7
+ninja
+packaging
+
+[test]
+pytest>=8

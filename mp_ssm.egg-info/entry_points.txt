@@ -1,0 +1,2 @@
+[console_scripts]
+mp-ssm = mp_ssm.cli:main

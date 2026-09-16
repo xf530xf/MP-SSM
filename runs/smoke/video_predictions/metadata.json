@@ -1,0 +1,32 @@
+{
+  "checkpoint": "/Users/fengxiao/Desktop/SSM/runs/smoke/best.pt",
+  "checkpoint_epoch": 1,
+  "trained_on_synthetic": true,
+  "source": "/Users/fengxiao/Desktop/SSM/runs/verification/synthetic_input.avi",
+  "native_resolution": false,
+  "model_input_size": 64,
+  "threshold": 0.5,
+  "min_area": 1,
+  "save_every": 1,
+  "scan_backend": "reference",
+  "device": "cpu",
+  "environment": {
+    "python": "3.14.5",
+    "platform": "macOS-15.3.1-arm64-arm-64bit-Mach-O",
+    "torch": "2.10.0",
+    "numpy": "2.4.1",
+    "opencv": "5.0.0",
+    "cuda_build": null,
+    "cuda_available": false,
+    "gpu": null
+  },
+  "score_semantics": "mean pixel foreground probability, not calibrated detection confidence",
+  "count_semantics": "connected regions per frame; no tracking or unique-particle count",
+  "boxes": "xyxy, upper endpoints exclusive; touching particles may merge",
+  "processed_frames": 2,
+  "source_fps": 5.0,
+  "original_shape": [
+    64,
+    64
+  ]
+}

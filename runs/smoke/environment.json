@@ -1,0 +1,10 @@
+{
+  "python": "3.14.5",
+  "platform": "macOS-15.3.1-arm64-arm-64bit-Mach-O",
+  "torch": "2.10.0",
+  "numpy": "2.4.1",
+  "opencv": "5.0.0",
+  "cuda_build": null,
+  "cuda_available": false,
+  "gpu": null
+}

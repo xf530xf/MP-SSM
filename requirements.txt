@@ -1,0 +1,7 @@
+# Install a suitable PyTorch build first; see README.md.
+torch>=2.2
+numpy>=1.24
+Pillow>=10
+PyYAML>=6
+opencv-python-headless>=4.8
+pytest>=8
