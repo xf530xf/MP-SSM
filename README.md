@@ -20,9 +20,6 @@ A PyTorch implementation of the main-text method in *Real-Time Detection of Micr
 
 **This is a paper-guided reimplementation with documented engineering choices, not the original experimental source code.** The default configuration contains **416,585 parameters**. The manuscript's reported 0.95M parameters, 96.13% mIoU, 65 FPS, and memory figures are not treated as measured results for this implementation. The example checkpoints included in this workspace were trained on synthetic samples solely to verify the workflow.
 
-- [Paper-to-code mapping](docs/paper_mapping.md) (Chinese): equations, implementation choices, and differences between the main text and appendix.
-- [Validation record](docs/validation.md) (Chinese): completed checks and remaining validation tasks.
-- [Third-party notices](THIRD_PARTY_NOTICES.md): reference repositories and licenses.
 
 ## 1. Environment
 
