@@ -18,7 +18,7 @@ Open the link above and click the download button to save the dataset to your de
 
 A PyTorch implementation of the main-text method in *Real-Time Detection of Microplastics in Aquatic Environments Enabled by an Ultra-Lightweight Vision Model*. The project includes six-direction selective state-space recurrence, a four-stage VSSB backbone, SPPF, a multi-scale decoder, and MFF, together with training, evaluation, image/video inference, and benchmarking tools.
 
-**This is a paper-guided reimplementation with documented engineering choices, not the original experimental source code.** The default configuration contains **416,585 parameters**. The manuscript's reported 0.95M parameters, 96.13% mIoU, 65 FPS, and memory figures are not treated as measured results for this implementation. The example checkpoints included in this workspace were trained on synthetic samples solely to verify the workflow.
+**This is a paper-guided reimplementation with documented engineering choices, not the original experimental source code. The manuscript's reported 0.95M parameters, 96.13% mIoU, 65 FPS, and memory figures are not treated as measured results for this implementation. The example checkpoints included in this workspace were trained on synthetic samples solely to verify the workflow.
 
 
 ## 1. Environment
