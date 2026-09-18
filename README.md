@@ -23,8 +23,7 @@ A PyTorch implementation of the main-text method in *Real-Time Detection of Micr
 
 ## 1. Environment
 
-Recommended environment for full training: Linux, Python 3.11, an NVIDIA GPU, and a CUDA-enabled PyTorch build compatible with the installed GPU driver. Use the reference backend on macOS or CPU for small correctness tests.
-
+Recommended environment for full training: Linux, Python 3.11, an NVIDIA GPU, and a CUDA-enabled PyTorch build compatible with the installed GPU driver. 
 
 ### NVIDIA server setup
 
