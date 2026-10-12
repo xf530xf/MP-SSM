@@ -108,7 +108,7 @@ python -m mp_ssm train --config configs/paper.yaml \
   --resume runs/mp_ssm_01/latest.pt --epochs 200
 ```
 
-Defaults: one GPU, 512 × 512 inputs, 200 epochs, batch size 1, zero data-loader workers, seed 42, AMP disabled, `BCEWithLogitsLoss`, and AdamW. See `configs/paper.yaml` for the complete settings. Training logs the loss every 20 steps, validates every 10 epochs and at the final epoch, and saves an additional snapshot every 100 epochs. It updates `latest.pt` after every epoch and selects `best.pt` using **validation mIoU averaged over foreground and background**.
+Defaults: one GPU, 512 × 512 inputs, 200 epochs, batch size 2, zero data-loader workers, seed 42, AMP disabled, `BCEWithLogitsLoss`, and AdamW. See `configs/paper.yaml` for the complete settings. Training logs the loss every 20 steps, validates every 10 epochs and at the final epoch, and saves an additional snapshot every 100 epochs. It updates `latest.pt` after every epoch and selects `best.pt` using **validation mIoU averaged over foreground and background**.
 
 Checkpoints include the model, optimizer, learning-rate scheduler, AMP scaler, Python/NumPy/PyTorch/CUDA random states, DataLoader generator state, epoch, and step count. `--epochs` specifies the total target number of epochs, not the number of additional epochs. Resuming requires matching architecture, preprocessing, optimization, and evaluation settings. Changing devices or worker counts may prevent bitwise reproducibility.
 
