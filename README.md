@@ -160,9 +160,6 @@ python -m mp_ssm benchmark --config configs/paper.yaml \
   --output runs/profile_cpu.json
 ```
 
-Latency measurement uses synchronization, warmup iterations, and batch size 1 with the input already resident on the device. It measures model forward execution and excludes file I/O, preprocessing, host-to-device transfer, and postprocessing. Results include mean, median, and P95 latency, plus throughput. CUDA reports baseline allocator usage and peak allocated/reserved memory. CPU/MPS memory is marked as unmeasured rather than reported as zero.
-
-The FLOPs counter covers only Conv2d and Linear operations, using 2 FLOPs per multiply-accumulate, and reports them as `partial_conv_linear_flops`. It excludes selective recurrence, einsum projections, scan permutations, normalization, activations, pooling, and interpolation. **This value must not be presented as total model FLOPs.** FP16/BF16 benchmarks use autocast while retaining FP32 master weights; these runs do not demonstrate a halving of stored model weights.
 
 ## 8. Python API and Project Structure
 
