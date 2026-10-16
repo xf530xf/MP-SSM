@@ -128,35 +128,3 @@ python -m mp_ssm evaluate --checkpoint runs/mp_ssm_01/best.pt \
 At the fixed threshold of 0.5, TP, FP, FN, and TN are accumulated across the dataset before computing precision, recall, F1, foreground IoU, background IoU, and their average, mIoU. **Foreground IoU and two-class mIoU are reported separately.** ODS is the best pooled dataset F1 obtained with one shared threshold; OIS is the mean of the best per-image F1 scores. The default threshold grid runs from 0.01 to 0.99 in steps of 0.01, and the complete threshold curve is saved.
 
 ODS and OIS are evaluation statistics. An optimal threshold found on the test set is not written back to the inference configuration. Empty ground truth and empty prediction yield F1 = 1. A class absent from both prediction and ground truth receives IoU = 1. Precision is 0 when no foreground is predicted but foreground exists in the target; undefined recall is set to 1 when the target contains no foreground. These conventions are recorded in the result JSON.
-
-## 6. Image and Video Inference
-
-```bash
-python -m mp_ssm infer --checkpoint runs/mp_ssm_01/best.pt \
-  --source /path/to/image.png --output runs/image_result
-python -m mp_ssm infer --checkpoint runs/mp_ssm_01/best.pt \
-  --source /path/to/video.mp4 --output runs/video_result --save-every 10
-```
-
-By default, each image is resized to the training input size. The predicted logits are interpolated back to the original dimensions before applying sigmoid. Use `--native` to process the original resolution directly; this changes computation and input distribution, so results should be reported separately. The threshold and minimum displayed region area can be adjusted with `--threshold 0.5` and `--min-area 1`.
-
-- **Images:** `*_probability.npy` at the original resolution in float32, `*_mask.png` with values 0/255, `*_overlay.png`, and region metadata in JSON.
-- **Videos:** `overlay.mp4`, per-frame `frames.jsonl`, and saved probability arrays and masks. `--save-every` controls only the saving interval; every frame is still processed. Its default is 1. High-resolution probability arrays can require substantial disk space.
-- **Metadata:** preprocessing settings, threshold, input size, device, and whether the checkpoint was trained on synthetic data.
-
-Bounding boxes are derived from 8-connected foreground regions and use original-image `xyxy` coordinates with exclusive upper bounds. Each score is the mean foreground probability within a region, not a calibrated detection confidence. Touching particles may form one connected region. There is no tracking, so per-frame counts cannot be summed to obtain a count of unique particles. For odd-sized video frames, only the encoded overlay is padded by one row or column as needed; masks and box coordinates retain the original dimensions.
-
-## 7. Parameters, Latency, and Memory
-
-```bash
-# Benchmark on CUDA. Add --checkpoint to measure a trained model.
-python -m mp_ssm benchmark --config configs/paper.yaml \
-  --sizes 512 2048 --warmup 10 --iterations 50 --precision fp32 \
-  --output runs/benchmark_cuda.json
-
-# On macOS, count parameters and storage without a high-resolution forward pass.
-python -m mp_ssm benchmark --config configs/paper.yaml \
-  --device cpu --scan-backend reference --profile-only \
-  --output runs/profile_cpu.json
-```
-he real image/mask dataset, reliable source-video metadata, and an NVIDIA server. Private data downloading and a complete 200-epoch training run are not performed automatically. Accuracy and performance claims must be based on actual measurements.
