@@ -159,28 +159,4 @@ python -m mp_ssm benchmark --config configs/paper.yaml \
   --device cpu --scan-backend reference --profile-only \
   --output runs/profile_cpu.json
 ```
-
-
-## 8. Python API and Project Structure
-
-```python
-import torch
-from mp_ssm import MPSSM
-
-model = MPSSM(scan_backend="reference").eval()
-with torch.inference_mode():
-    logits = model(torch.randn(1, 3, 64, 96))
-    probabilities = logits.sigmoid()
-assert logits.shape == (1, 1, 64, 96)
-```
-
-```text
-mp_ssm/       Model, selective scan, data, metrics, training, inference, benchmarks, and CLI
-configs/      Paper configuration and CPU synthetic smoke-test configuration
-tests/        Recurrence, shape, gradient, data isolation, metric, and workflow tests
-scripts/      Environment diagnostics
-docs/         Paper-to-code mapping and validation records
-third_party/  Reference-project license notices
-```
-
-Full experimental validation requires the real image/mask dataset, reliable source-video metadata, and an NVIDIA server. Private data downloading and a complete 200-epoch training run are not performed automatically. Accuracy and performance claims must be based on actual measurements.
+he real image/mask dataset, reliable source-video metadata, and an NVIDIA server. Private data downloading and a complete 200-epoch training run are not performed automatically. Accuracy and performance claims must be based on actual measurements.
