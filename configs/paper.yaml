@@ -20,7 +20,7 @@ data:
 train:
   device: cuda
   epochs: 200
-  batch_size: 1
+  batch_size: 2
   workers: 0
   seed: 42
   amp: false
